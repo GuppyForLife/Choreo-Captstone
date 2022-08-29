@@ -1,8 +1,7 @@
 scalar LongNumber
 
 type Query {
-    checkingAccounts: [CheckingAccount!]!
-    singleCheckingAccount(checkingAccountNumber: LongNumber): CheckingAccount!
+    checkingAccount(checkingAccountNumber: LongNumber): [CheckingAccount!]!
 }
 
 type CheckingAccount {

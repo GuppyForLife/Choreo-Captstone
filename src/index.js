@@ -5,12 +5,14 @@ const customers = require("./sampleData");
 
 const resolvers = {
   Query: {
-    checkingAccounts: () => customers,
-    singleCheckingAccount: (parent, args) => {
-      const customer = customers.filter((customer) => {
-        return customer.checkingAccountNumber === args.checkingAccountNumber;
-      });
-      return customer[0];
+    checkingAccount: (parent, args) => {
+      if (args.checkingAccountNumber) {
+        const customer = customers.filter((customer) => {
+          return customer.checkingAccountNumber === args.checkingAccountNumber;
+        });
+        return customer;
+      }
+      return customers;
     },
   },
 
